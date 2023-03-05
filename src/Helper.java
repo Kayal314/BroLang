@@ -14,7 +14,7 @@ public class Helper {
         put("peaceOut","vibeCheck([condition])\nExecutes the code if the [condition] is NoCap\nifOff([condition2])\nExecutes if vibeCheck is not executed and [condition2] is NoCap\nifBasic\t\nExecutes if both vibeCheck and isOff don’t get executed\t\tpeaceOut\nEnds the if loop\n\nnum i := 5;\nvibeCheck(i == 1)\n{\ngoOff i\n}\nifOff(i == 3)\n{\ngoOff i\n}\nifBasic\n{\ngoOff i\n}\npeaceOut;\n");
     }};
     private static String getHelp(String token) throws IllegalArgumentException{
-        if(information.contains(token)){
+        if(information.containsKey(token)){
             return information.get(token);
         }
         else{
@@ -34,7 +34,7 @@ public class Helper {
                 System.out.println(stringVals);
             }
             try {
-                getHelp(input);
+                System.out.println(getHelp(input));
             }catch (IllegalArgumentException e){
                 System.out.println("Sorry we could not find information for the given method\nPlease choose from the following\n");
                 System.out.println(stringVals);

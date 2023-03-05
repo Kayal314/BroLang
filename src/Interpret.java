@@ -9,7 +9,8 @@ interface Keywords
     String NUMBER="num";
     String BOOLEAN="boolean";
     String STRING ="string";
-    String PRINT = "goOff";
+    String PRINT = "slay";
+    String PRINTLN="slayQueen";
     String True="noCap";
     String False="Cap";
     String PLUS="+";
@@ -396,7 +397,7 @@ public class Interpret extends MathFunc implements Keywords {
             throw new IllegalArgumentException("Cannot parse the expression");
         return evaluator.pop();
     }
-
+    private int ln=0;
     private void execute(String[] codes, StringTokenizer tk, int i) {
         try {
             while (tk.hasMoreTokens()) {
@@ -427,6 +428,10 @@ public class Interpret extends MathFunc implements Keywords {
                         assign_Str(tk);
                         break;
                     case PRINT:
+                        ln=1;
+                    case PRINTLN:
+                        if(ln==0)
+                            ln=2;
                         String to_be_printed = tk.nextToken();
 
                         /*
@@ -445,30 +450,33 @@ public class Interpret extends MathFunc implements Keywords {
                             }
                             to_be_printed = sub_token.toString();
                             to_be_printed = to_be_printed.substring(1, to_be_printed.length() - 1);
-                            System.out.println(to_be_printed);
+                            System.out.print(to_be_printed);
                         } else if (to_be_printed.equals(True) || to_be_printed.equals(False))
-                            System.out.println(to_be_printed);
+                            System.out.print(to_be_printed);
 
                         else {
                             // its either a non-string constant or a variable
                             if (memory_num.get(to_be_printed) != null)
-                                System.out.println(memory_num.get(to_be_printed));
+                                System.out.print(memory_num.get(to_be_printed));
                             else if (memory_string.get(to_be_printed) != null)
-                                System.out.println(memory_string.get(to_be_printed));
+                                System.out.print(memory_string.get(to_be_printed));
                             else if (memory_bool.get(to_be_printed) != null)
-                                System.out.println(memory_bool.get(to_be_printed));
+                                System.out.print(memory_bool.get(to_be_printed));
 
                             else {
                                 if (isNumber(to_be_printed))
-                                    System.out.println(to_be_printed);
+                                    System.out.print(to_be_printed);
+                                if(Operators.isBooleanConstant(to_be_printed))
+                                    System.out.print(to_be_printed);
                                 else {
                                     System.out.println(UNNAMED_REFERENCE);
                                     return;
                                 }
                             }
-
-
                         }
+                        if(ln==2)
+                            System.out.println();
+                        ln=0;
                         break;
                     case IF:
                         String tk1 = tk.nextToken();

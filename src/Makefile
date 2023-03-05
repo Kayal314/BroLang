@@ -16,4 +16,5 @@ Interpret.class: Operators.class Parser.class Interpret.java
 Helper.class: Helper.java
     javac Helper.java
 
-
+clean:
+    rm -f *.class

@@ -11,10 +11,10 @@
 
 ## Arithmetic Operations
 
-1.  + : This represents addition operation (2+5=7)
-2.  -  : This represents subtraction operation (2-5=-3)
-3.  *  : This represents multiplication operation (25 = 10)
-4.  / :  This represents division operation (2/5 = 0.4)
+1.  \+ : This represents addition operation (2+5=7)
+2.  \- : This represents subtraction operation (2-5=-3)
+3.  \* : This represents multiplication operation (2*5 = 10)
+4.  /  : This represents division operation (2/5 = 0.4)
 
 ## Assignment Operator
 

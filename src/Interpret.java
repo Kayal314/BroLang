@@ -6,7 +6,7 @@ import java.util.*;
 
 interface Keywords
 {
-    String IMPLEMENT="implement";
+    String IMPLEMENT="whereHeAt";
     String MATH="math";
     String MATH_FUNC="math:";
     String NUMBER="num";

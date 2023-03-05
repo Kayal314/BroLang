@@ -37,6 +37,7 @@ interface Keywords
     String ENDIF="peaceOut";
     String FOR="loopin";
     String WHILE="tillClapback";
+    String SCAN="scopeOut";
     String UNNAMED_REFERENCE ="[ERROR] : Unnamed Reference";
     String ARITHMETIC_EX = "[ERROR] : Arithmetic Exception";
     String INDEX_OUT_OF_BOUNDS="[ERROR] : String Index Out of Bounds Exception";
@@ -513,6 +514,36 @@ public class Interpret extends MathFunc implements Keywords {
                         f_if = false;
                         f_el_if = false;
                         break;
+                    case SCAN:
+                        if(!tk.hasMoreTokens()) {
+                            System.out.println("[ERROR]: Incorrect syntax for " + SCAN+". Type not specified");
+                            return;
+                        }
+                        String type=tk.nextToken().trim();
+                        Scanner sc=new Scanner(System.in);
+                        if(!tk.hasMoreTokens()) {
+                            System.out.println("[ERROR]: Incorrect syntax for " + SCAN+". Variable name not specified");
+                            return;
+                        }
+                        String varName=tk.nextToken().trim();
+                        try {
+                            switch (type) {
+                                case "%s" -> memory_string.replace(varName, sc.nextLine());
+                                case "%n" -> memory_num.replace(varName, sc.nextDouble());
+                                case "%b" -> memory_bool.replace(varName, Operators.literalToBoolean(sc.next().trim()));
+                                default -> {
+                                    System.out.println("[ERROR]: Unknown identifier");
+                                    return;
+                                }
+                            }
+                        }
+                        catch (NoSuchElementException ex) {
+                            System.out.println("[ERROR]: Type mismatch");
+                            return;
+                        }
+                        break;
+
+
                     case EVAL:
                         String v = tk.nextToken();
                         tk.nextToken();

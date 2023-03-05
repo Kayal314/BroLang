@@ -22,18 +22,18 @@ interface Keywords
     String ASSIGN=":=";
     String AND="and";
     String OR="or";
-    String NOT="not";
+    String NOT="nah";
     String XOR="xor";
     String LESS="<";
     String MORE=">";
     String LESS_OR_EQUAL="<=";
     String MORE_OR_EQUAL=">=";
     String EQUAL="==";
-    String LEN="len:";
+    String LEN="watchaPackin:";
     String GET_INDEX="<index>";
     String IF="vibeCheck";
-    String ELSE="ifBasic";
-    String ELSE_IF="ifOff";
+    String ELSE="okBoomer";
+    String ELSE_IF="bruhPlease";
     String ENDIF="peaceOut";
     String FOR="loopin";
     String WHILE="tillClapback";
@@ -382,6 +382,9 @@ public class Interpret extends MathFunc implements Keywords {
                     case "-" -> evaluator.push(d2 - d1);
                     case "*" -> evaluator.push(d2 * d1);
                     case "/" -> evaluator.push(d2 / d1);
+                    case "|" -> evaluator.push((double) ((int)d2 | (int)d1));
+                    case "&" -> evaluator.push((double) ((int)d2 & (int)d1));
+                    case "^" -> evaluator.push((double) ((int)d2 ^ (int)d1));
                 }
             } else if (Operators.isNumber(token))
                 evaluator.push(Double.parseDouble(token));

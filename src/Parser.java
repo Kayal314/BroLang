@@ -5,6 +5,12 @@ import java.util.Stack;
 
 public class Parser {
 
+    /**
+     * Converts infix notation to postfix
+     *
+     * @param infix - The infix expression
+     * @return The postfix expression represented as a queue
+     * */
     public static Queue<String> convertInfixToPostfix(Queue<String> infix) {
         Queue<String> postfix=new LinkedList<>();
         Stack<String> operatorStack=new Stack<>();
@@ -34,6 +40,13 @@ public class Parser {
         return postfix;
     }
 
+    /**
+     * Separates the tokens in a mathematical expressions and returns them
+     * in a list, maintaining the order
+     *
+     * @param expression - The string expression
+     * @return list of token (in order) in the string expression
+     * */
     public static Queue<String> convertStringToQueue(String expression) {
         Queue<String> infix=new LinkedList<>();
         int pos=0;
@@ -56,12 +69,6 @@ public class Parser {
             infix.add(expression.substring(pos));
 
         return infix;
-    }
-
-    public static void main(String[] args) {
-        Queue<String> l=convertStringToQueue("a+b/(c*d+556)+980");
-        System.out.println(convertStringToQueue("a+b/(c*d+556)+980"));
-        System.out.println(convertInfixToPostfix(l));
     }
 
 }

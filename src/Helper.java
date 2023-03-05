@@ -1,5 +1,8 @@
 import java.util.Hashtable;
+import java.util.Scanner;
+
 public class Helper {
+    public static String stringVals = "goOff\nloopin\ntillClapback\nvibeCheck\nifOff\nifBasic\npeaceOut";
     private static final Hashtable<String, String> information = new Hashtable<>(){{
         put("goOff","prints the string/ number / boolean to the console\ngoOff “Hello”\ngoOff “World”\n");
         put("loopin","A loop which executes the code, written in the block, (final-initial) times\nnum m := 0;\nnum n := 3;\nloopin i : (m,n)\n{\ngoOff i\ni++;\n}\n");
@@ -14,7 +17,20 @@ public class Helper {
             return information.get(token);
         }
         else{
-            throw new IllegalArgumentException("Key not found");
+            throw new IllegalArgumentException(stringVals);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scnr = new Scanner(System.in);
+        while(true){
+            String input = scnr.next().trim();
+            try {
+                getHelp(input);
+            }catch (IllegalArgumentException e){
+                System.out.println("Sorry we could not find information for the given method\nPlease choose from the following\n");
+                System.out.println(e.getMessage());
+            }
         }
     }
 }

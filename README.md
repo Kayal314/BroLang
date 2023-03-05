@@ -111,11 +111,11 @@ Example:
 
 ```
 num i := 5
-vibeCheck(i == 1)
+vibeCheck i == 1
 {
 	goOff i
 }
-bruhPlease(i == 3)
+bruhPlease i == 3
 {
 	goOff i 
 }

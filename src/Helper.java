@@ -2,7 +2,7 @@ import java.util.Hashtable;
 import java.util.Scanner;
 
 public class Helper {
-    public static String stringVals = "goOff\nloopin\ntillClapback\nvibeCheck\nifOff\nifBasic\npeaceOut";
+    public static String stringVals = "slay\nslayQueen\nloopin\ntillClapback\nvibeCheck\nifOff\nifBasic\npeaceOut";
     private static final Hashtable<String, String> information = new Hashtable<>(){{
         put("slay","prints the string/ number / boolean to the console\ngoOff “Hello”\ngoOff “World”\n");
         put("slayQueen","prints the string/ number / boolean to the console with a new line\ngoOff “Hello”\ngoOff “World”\n");

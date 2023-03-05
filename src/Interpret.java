@@ -9,8 +9,8 @@ interface Keywords
     String NUMBER="num";
     String BOOLEAN="boolean";
     String STRING ="string";
-    String PRINT = "slay";
-    String PRINTLN="slayQueen";
+    String PRINT = "goOff";
+    String PRINTLN="goOffKing";
     String True="noCap";
     String False="Cap";
     String PLUS="+";

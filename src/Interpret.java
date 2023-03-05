@@ -37,7 +37,7 @@ interface Keywords
     String ENDIF="peaceOut";
     String FOR="loopin";
     String WHILE="tillClapback";
-    String SCAN="scopeOut";
+    String SCAN="getSauce";
     String UNNAMED_REFERENCE ="[ERROR] : Unnamed Reference";
     String ARITHMETIC_EX = "[ERROR] : Arithmetic Exception";
     String INDEX_OUT_OF_BOUNDS="[ERROR] : String Index Out of Bounds Exception";
